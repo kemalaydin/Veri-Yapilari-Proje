@@ -22,20 +22,35 @@ Veriliş Tarihi: 2 Kasım 2018
 Teslim Tarihi: 05 Aralık 2018 Saat: 11:30 (en geç)
 
 Ödev teslim şekli:
+
 1-	Ödevleri 4'er kişilik gruplar halinde yapılacaktır. 4'er kişilik gruplar oluşması ödevin bir parçasıdır. Grupları kendiniz oluşturabilirsiniz. Her grubun bir ödev teslim etmesi yeterli. 
+
 2-	Ödevler dijital ortamda hazırlanıp çıktısı alınarak teslim edilecektir. 
+
 3-	El yazımı ile yapılan ödevler kabul edilmeyecektir. 
+
 4-	Programlar C/C++ ile yazılacaktır. 
+
 5-	Ödeve grup üyelerinin numaralarını  ve ismlerini yazmayı unutmayınız? 
+
 6-	Ödev ile ilgili tartışabilirsiniz ve araştırma yapabilirsiniz, fakat aynı ödevi verdikleri tespit edilenlerin notları yansıtılmayacak.
+
 7-	Ödevleri zımbalayarak verebilirsiniz. Poşet veya dosya içine koymanıza gerek yok.
+
 8-	Ödevlerde kapak ve gereksiz süs olması ödev notunuzu etkilemez. Bunları koymayabilirsiniz.
+
 program kodunuzun en başına aşağıdaki bilgileri yazınız?
+
 \\  Odev 1
+
 \\ Ogrenci1 No: .........
+
 \\ Ogrenci1 Ismı: ................
+
 \\ Ogrenci2 No: .........
+
 \\ Ogrenci2 Ismı: ................
+
 ....
 \\ Ders kodu:…….
 \\ Dosya ismi: Program dosyasının ismi yazılacak
