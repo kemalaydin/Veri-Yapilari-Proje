@@ -19,9 +19,13 @@ https://bm.erciyes.edu.tr/mcelik/bz205/
 
 ***************************************************
 Ödev
+
 Veri Yapıları ve Algoritmalar Dersi
+
 Sonbahar 2018
+
 Veriliş Tarihi: 2 Kasım 2018
+
 Teslim Tarihi: 05 Aralık 2018 Saat: 11:30 (en geç)
 
 Ödev teslim şekli:
