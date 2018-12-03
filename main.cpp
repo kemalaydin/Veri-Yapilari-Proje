@@ -11,23 +11,12 @@
 
 using namespace std;
 
-
-
 typedef struct student{
     string student_number;
     string name;
     string surname;
     string program;
 }STUDENT;
-
-class Node{
-public:
-    student data;
-    // Sonraki Adres
-    Node* next;
-    // Önceki Adres
-    Node* prev;
-};
 
 void alert(string data, string type){
     string color;
@@ -55,6 +44,15 @@ void alert(string data, string type){
     cout << endl;
 
 }
+
+class Node{
+public:
+    student data;
+    // Sonraki Adres
+    Node* next;
+    // Önceki Adres
+    Node* prev;
+};
 
 class List{
     public:
@@ -149,15 +147,44 @@ class List{
 
         };
 
+        int TotalNode(){
+            Node* currNode = head;
+            int index;
+            while(currNode){
+                currNode = currNode->next;
+                index++;
+            }
+            return index;
+        }
+
         void DisplayList(void){
             Node* currNode = head;
             alert("Bilgisayar Programlama Dersi Öğrencileri","info");
             while(currNode != NULL){
-                cout << currNode->data.student_number + " - " + currNode->data.name + " " + currNode->data.surname + " - " + currNode->data.program<< endl;
+                string selected_program;
+                if(currNode->data.program  == "1"){
+                    selected_program = "Bilgisayar Mühendisliği";
+                }else if(currNode->data.program == "2"){
+                    selected_program = "Makine Mühendisliği";
+                }else if(currNode->data.program == "3"){
+                    selected_program = "Gıda Mühendisliği";
+                }else{
+                    selected_program = "Tanımlı Olmayan Program";
+                }
+                cout << currNode->data.student_number + " - " + currNode->data.name + " " + currNode->data.surname + " - " + selected_program << endl;
                 currNode = currNode->next;
             }
             cout << " ----------------- " << endl;
         };
+
+    private:
+        Node* head;
+};
+
+class BTree{
+    public:
+        BTree(void){ head = NULL; }
+        ~BTree(void);
 
     private:
         Node* head;
@@ -170,8 +197,8 @@ void programmingLesson(int operatingType){
     switch (operatingType) {
         case 1:{
             student new_student;
-            student new_st;
-            int sira;
+            int total_node = list.TotalNode()-1;
+            int sira = total_node;
 
             cout << "Öğrenci Numarası : ";
             cin >> new_student.student_number;
@@ -179,10 +206,13 @@ void programmingLesson(int operatingType){
             cin >> new_student.name;
             cout << "Öğrenci Soyadı : ";
             cin >> new_student.surname;
-            cout << "Öğrenci Programı : ";
+            cout << "Öğrenci Programı (1 : Bilgisayar Müh. , 2 : Makine Müh. , 3 : Gıda Müh. ) : ";
             cin >> new_student.program;
-            cout << "Kaçıncı Sıraya Eklenecek : ";
+            cout << "Kaçıncı Sıraya Eklenecek ( Sıra = " << total_node << " ) : ";
             cin >> sira;
+            if(sira == NULL){
+                sira = total_node;
+            }
             list.InsertNode(sira, new_student);
             break;
         }
@@ -207,8 +237,31 @@ void programmingLesson(int operatingType){
             cout << " --------- " << endl;
         }
         case 4:{
-
             list.DisplayList();
+            break;
+        }
+
+        case 5:{
+            student new_student;
+
+            string auto_student[5][4] = {
+                    {"1030516799","Kemal","Aydın","1"},
+                    {"1030516787","Mehmet","Kaynak","1"},
+                    {"1030516785","Ali","Çolak","1"},
+                    {"1030516687","Salih Berat","Ulutürk","1"},
+                    {"1030516710","Aykut","Kocaman","1"},
+
+            };
+
+            for(int i = 0; i < 5; i++){
+                new_student.student_number = auto_student[i][0];
+                new_student.name = auto_student[i][1];
+                new_student.surname = auto_student[i][2];
+                new_student.program = auto_student[i][3];
+                list.InsertNode(i,new_student);
+            }
+
+            alert("5 Adet Öğrenci Bilgisayar Programlama Dersine Eklendi","success");
             break;
         }
 
@@ -226,7 +279,7 @@ int main(int argc, const char * argv[]) {
     deneme.student_number = "1030516799";
     deneme.name = "Kemal";
     deneme.surname = "Aydın";
-    deneme.program = "Bilgisayar Müh";
+    deneme.program = "1";
     list.InsertNode(0, deneme);
     list.DisplayList();
     do{
@@ -239,7 +292,7 @@ int main(int argc, const char * argv[]) {
                 cout << "----------" << endl << "Bilgisayar Programlama Dersi İçin Yapmak İstediğiniz İşlemi Seçiniz ; "
                      << endl;
                 cout << "1- Öğrenci Ekle" << endl << "2- Öğrenci Sil" << endl << "3- Öğrenci Bul" << endl
-                     << "4- Öğrencileri Listele" << endl;
+                     << "4- Öğrencileri Listele" << endl << "5- Otomatik Öğrenci Ekle" << endl;
                 cout << "Seçilen İşlem : ";
                 cin >> operatingType;
                 programmingLesson(operatingType);
